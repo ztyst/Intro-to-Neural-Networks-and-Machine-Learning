@@ -1,0 +1,64 @@
+>>> checking.print_gradients()
+loss_derivative[2, 5] 0.0013789153741
+loss_derivative[2, 121] -0.999459885968
+loss_derivative[5, 33] 0.000391942483563
+loss_derivative[5, 31] -0.708749715825
+
+param_gradient.word_embedding_weights[27, 2] -0.298510438589
+param_gradient.word_embedding_weights[43, 3] -1.13004162742
+param_gradient.word_embedding_weights[22, 4] -0.211118814492
+param_gradient.word_embedding_weights[2, 5] 0.0
+
+param_gradient.embed_to_hid_weights[10, 2] -0.0128399532941
+param_gradient.embed_to_hid_weights[15, 3] 0.0937808780803
+param_gradient.embed_to_hid_weights[30, 9] -0.16837240452
+param_gradient.embed_to_hid_weights[35, 21] 0.0619595914046
+
+param_gradient.hid_bias[10] -0.125907091215
+param_gradient.hid_bias[20] -0.389817847348
+
+param_gradient.output_bias[0] -2.23233392034
+param_gradient.output_bias[1] 0.0333102255428
+param_gradient.output_bias[2] -0.743090094025
+param_gradient.output_bias[3] 0.162372657748
+
+
+
+
+>>> model.predict_next_word('government','of','united',1)
+government of united said Prob: 0.09715
+>>> model.predict_next_word('he','is','the',1)
+he is the best Prob: 0.17207
+>>> model.predict_next_word('life','in','the',1)
+life in the world Prob: 0.12399
+>>> model.predict_next_word('city','of','new',1)
+city of new york Prob: 0.98503
+
+>>> language_model.find_occurrences('government','of','united')
+The tri-gram "government of united" did not occur in the training set.
+>>> language_model.find_occurrences('he', 'is', 'the')         
+The tri-gram "he is the" was followed by the following words in the training set:
+    one (4 times)
+    only (4 times)
+    president (4 times)
+    man (4 times)
+    best (2 times)
+    city (1 time)
+    group (1 time)
+    government (1 time)
+    first (1 time)
+    second (1 time)
+    same (1 time)
+    director (1 time)
+    show (1 time)
+    next (1 time)
+    public (1 time)
+>>> language_model.find_occurrences('life','in','the')
+The tri-gram "life in the" was followed by the following words in the training set:
+    big (7 times)
+    united (2 times)
+    department (1 time)
+    world (1 time)
+>>> language_model.find_occurrences('city','of','new')
+The tri-gram "city of new" was followed by the following words in the training set:
+    york (8 times)
